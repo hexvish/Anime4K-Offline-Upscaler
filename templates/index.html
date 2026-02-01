@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime4K Premium Upscaler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Anime4K Premium</h1>
+            <p class="subtitle">Studio-Grade Video Upscaling</p>
+        </header>
+
+        <main>
+            <!-- Main Processing Area -->
+            <section class="main-card">
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                        </svg>
+                        <p class="drop-text">Drop video(s) here</p>
+                        <p class="drop-hint">Preserves original filenames automatically</p>
+                    </div>
+                    <input type="file" id="file-input" accept="video/*" multiple hidden>
+                </div>
+
+                <div id="file-list-area" class="file-list-area" style="display: none;">
+                    <div class="area-header">📄 Selected Files</div>
+                    <ul id="file-list" class="file-list"></ul>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label>Anime4K Shader</label>
+                        <select id="shader-select" class="select-input">
+                            <option value="">Loading...</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>Quality (CRF)</label>
+                        <div class="slider-container">
+                            <input type="range" id="quality-input" min="15" max="28" value="18" class="range-input">
+                            <span id="quality-value" class="range-val">18</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-group full-width">
+                        <label>Resolution Mode</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="res-mode" value="Auto Scale" checked>
+                                <span>Auto Scale</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="res-mode" value="Custom Resolution">
+                                <span>Custom</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="auto-res-row" class="setting-group full-width row-settings">
+                        <div class="row-item">
+                            <label>Scale Factor</label>
+                            <input type="number" id="scale-input" class="text-input" value="2" min="1" max="4"
+                                step="0.5">
+                        </div>
+                    </div>
+
+                    <div id="custom-res-row" class="setting-group full-width row-settings" style="display: none;">
+                        <div class="row-item">
+                            <label>Width</label>
+                            <input type="number" id="width-input" class="text-input" value="3840">
+                        </div>
+                        <div class="row-item">
+                            <label>Height</label>
+                            <input type="number" id="height-input" class="text-input" value="2160">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="process-btn" class="btn btn-primary">
+                    🚀 Start Upscaling
+                </button>
+            </section>
+
+            <!-- Steady Console Area -->
+            <section class="console-card">
+                <div class="area-header">🖥️ Console Output</div>
+                <div id="console-status" class="console-status">
+                    <p class="waiting-msg">Waiting for input...</p>
+                </div>
+                <div id="result-area" class="result-area" style="display: none;">
+                    <div class="result-details">
+                        <p id="success-msg"></p>
+                        <div class="job-actions">
+                            <button id="save-btn" class="btn btn-save">💾 Save As...</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Tabs -->
+            <section class="info-section">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="instructions">📖 Instructions</button>
+                    <button class="tab-btn" data-tab="shaders">🧪 Shader Comparison</button>
+                </div>
+
+                <div id="instructions" class="tab-content active">
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <strong>1. Upload</strong>
+                            <p>Select one or more videos. Batch processing will automatically bundle multiple videos
+                                into a ZIP.</p>
+                        </div>
+                        <div class="guide-item">
+                            <strong>2. Parameters</strong>
+                            <p><strong>CRF:</strong> 18 is visually lossless. Higher values (24-28) save space but lose
+                                detail.</p>
+                        </div>
+                        <div class="guide-item">
+                            <strong>3. Scale</strong>
+                            <p>Original aspect ratio is always preserved in Auto Scale mode.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shaders" class="tab-content">
+                    <table class="shader-table">
+                        <thead>
+                            <tr>
+                                <th>Shader Type</th>
+                                <th>Quality</th>
+                                <th>Speed</th>
+                                <th>Recommended For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CNN x2 L (Large)</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>🐢 Slow</td>
+                                <td>High-end GPUs / Final renders</td>
+                            </tr>
+                            <tr>
+                                <td>CNN x2 M (Med)</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>🏃 Fast</td>
+                                <td>Balanced daily use</td>
+                            </tr>
+                            <tr>
+                                <td>CNN x2 S (Small)</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⚡ Ultra Fast</td>
+                                <td>Older hardware</td>
+                            </tr>
+                            <tr>
+                                <td>Denoise CNN</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>🏃 Fast</td>
+                                <td>Low quality / Grainy sources</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="gpu-status" class="gpu-status">Checking GPU...</div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

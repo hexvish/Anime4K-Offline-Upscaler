@@ -1,0 +1,25 @@
+# venv and python bits
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+
+# Project specific
+uploads/*
+!uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# IDE and System
+.vscode/
+.idea/
+.DS_Store
+*.log
+*.tmp
+*.zip
+*.mkv
+*.mp4
+*.avi
+*.mov
+*.webm
