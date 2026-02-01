@@ -62,7 +62,7 @@ chmod +x setup.sh launch_desktop.sh
 
 #### 1. Setup
 - Ensure [Homebrew](https://brew.sh) is installed.
-- Run:
+- Run the **One-Time Setup**:
   ```bash
   git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
   cd Anime4K-Offline-Upscaler
@@ -71,7 +71,7 @@ chmod +x setup.sh launch_desktop.sh
   ```
 
 #### 2. Launch
-- **Desktop Mode**: `./launch_desktop.sh`
+- **Desktop Mode**: Run `./launch_desktop.sh`
 - **Server Mode**: `source venv/bin/activate && python app.py`
 
 ---
