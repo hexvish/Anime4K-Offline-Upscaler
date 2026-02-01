@@ -43,14 +43,23 @@ This will:
 - Verify FFmpeg and libplacebo support
 - Create necessary upload/output directories
 
-### 3. Start Server
+### 3. Launch Application
 
+#### Option A: Desktop Mode (Recommended)
+This launches a standalone window using `pywebview`.
+```bash
+chmod +x launch_desktop.sh
+./launch_desktop.sh
+```
+
+#### Option B: Server Mode
+This starts the Flask server for access via a web browser.
 ```bash
 source venv/bin/activate
 python app.py
 ```
 
-### 4. Open Browser
+### 4. Open Browser (If using Server Mode)
 
 Navigate to: **http://localhost:5000**
 
