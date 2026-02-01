@@ -1,6 +1,6 @@
-# Anime4K Web Upscaler
+# Anime4K-Offline-Upscaler
 
-A standalone web application for GPU-accelerated video upscaling using Anime4K GLSL shaders and FFmpeg libplacebo.
+A standalone premium offline application for GPU-accelerated video upscaling using Anime4K GLSL shaders and FFmpeg libplacebo.
 
 ## Features
 
