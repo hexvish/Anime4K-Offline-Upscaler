@@ -14,6 +14,7 @@ outputs/*
 # IDE and System
 .vscode/
 .idea/
+.history/
 .DS_Store
 *.log
 *.tmp
