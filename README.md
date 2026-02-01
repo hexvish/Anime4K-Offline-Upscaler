@@ -21,47 +21,34 @@ A standalone premium offline application for GPU-accelerated video upscaling usi
 - **RAM**: 4GB+ recommended
 - **Disk**: Sufficient space for uploads and outputs
 
-## Installation
+## Installation & Launch
 
-### 1. Clone the Project
+### 🐧 Linux
 
+#### 1. Setup
 ```bash
 git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
 cd Anime4K-Offline-Upscaler
-```
-
-### 2. Run Setup Script
-
-```bash
-chmod +x setup.sh
+chmod +x setup.sh launch_desktop.sh
 ./setup.sh
 ```
 
-This will:
-- Create a Python virtual environment
-- Install dependencies (Flask, etc.)
-- Verify FFmpeg and libplacebo support
-- Create necessary upload/output directories
+#### 2. Launch
+- **Desktop Mode**: `./launch_desktop.sh`
+- **Server Mode**: `source venv/bin/activate && python app.py`
 
-### 3. Launch Application
+---
 
-#### Option A: Desktop Mode (Recommended)
-This launches a standalone window using `pywebview`.
-```bash
-chmod +x launch_desktop.sh
-./launch_desktop.sh
-```
+### 🪟 Windows
 
-#### Option B: Server Mode
-This starts the Flask server for access via a web browser.
-```bash
-source venv/bin/activate
-python app.py
-```
+#### 1. Setup
+- Ensure [Python 3.11+](https://www.python.org/downloads/windows/) and [FFmpeg](https://ffmpeg.org/download.html#build-windows) are installed and in your PATH.
+- Double-click **`setup.bat`**.
 
-### 4. Open Browser (If using Server Mode)
+#### 2. Launch
+- Double-click **`launch_desktop.bat`**.
 
-Navigate to: **http://localhost:5000**
+---
 
 ## Usage
 
