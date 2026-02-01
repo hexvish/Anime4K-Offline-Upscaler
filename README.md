@@ -26,8 +26,8 @@ A standalone premium offline application for GPU-accelerated video upscaling usi
 ### 1. Clone the Project
 
 ```bash
-git clone <your-repo-url>
-cd anime4k-web
+git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
+cd Anime4K-Offline-Upscaler
 ```
 
 ### 2. Run Setup Script
