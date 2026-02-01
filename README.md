@@ -42,7 +42,15 @@ chmod +x setup.sh launch_desktop.sh
 ### 🪟 Windows
 
 #### 1. Setup
-- Ensure [Python 3.11+](https://www.python.org/downloads/windows/) and [FFmpeg](https://ffmpeg.org/download.html#build-windows) are installed and in your PATH.
+- **Python**: Install [Python 3.11+](https://www.python.org/downloads/windows/) (ensure "Add Python to PATH" is checked).
+- **FFmpeg**: 
+  1. Download the "essentials" build from [Gyan.dev](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials-7z.exe) or [Brosser](https://github.com/Brosser/ffmpeg-builds/releases).
+  2. Extract the folder (e.g., to `C:\ffmpeg`).
+  3. Add the `bin` folder (e.g., `C:\ffmpeg\bin`) to your **System Environment Variables**:
+     - Search for "Edit the system environment variables" in Windows Search.
+     - Click **Environment Variables** > Select **Path** in 'System variables' > **Edit** > **New**.
+     - Paste the path to the `bin` folder and click OK.
+  4. Verify by opening a new Command Prompt and typing `ffmpeg -version`.
 - Double-click **`setup.bat`**.
 
 #### 2. Launch
