@@ -329,7 +329,7 @@ if __name__ == '__main__':
     flask_thread.daemon = True
     flask_thread.start()
     
-    webview.create_window('Anime4K Premium Upscaler', f'http://127.0.0.1:{PORT}', width=1200, height=900)
+    webview.create_window('Anime4K-Offline-Upscaler', f'http://127.0.0.1:{PORT}', width=1200, height=900)
     try:
         webview.start()
     except Exception as e:
