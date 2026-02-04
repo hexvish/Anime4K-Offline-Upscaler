@@ -33,7 +33,7 @@ app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
 app.config['OUTPUT_FOLDER'] = os.getenv('OUTPUT_FOLDER', 'outputs')
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_FILE_SIZE', 2147483648))
 app.config['ALLOWED_EXTENSIONS'] = set(
-    os.getenv('ALLOWED_EXTENSIONS', 'mp4,mkv,avi,mov,webm').split(','))
+    os.getenv('ALLOWED_EXTENSIONS', 'mp4,mkv,avi,mov,webm,flv,wmv,m4v').split(','))
 
 # Job storage (in-memory)
 jobs = {}
@@ -394,6 +394,31 @@ def cancel_job(job_id):
     return jsonify({'error': 'Job not running'}), 400
 
 
+
+def cleanup_files():
+    """Delete all video and zip files from uploads and outputs folders on exit"""
+    folders = [app.config['UPLOAD_FOLDER'], app.config['OUTPUT_FOLDER']]
+    extensions = app.config['ALLOWED_EXTENSIONS']
+    
+    print("\nCleaning up files...")
+    for folder in folders:
+        if not os.path.exists(folder):
+            continue
+            
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
+            try:
+                # Check extension (video files or zip files in output)
+                ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''
+                
+                if (ext in extensions) or (folder == app.config['OUTPUT_FOLDER'] and ext == 'zip'):
+                    if os.path.isfile(file_path):
+                        os.remove(file_path)
+                        print(f"Deleted: {filename}")
+            except Exception as e:
+                print(f"Error deleting {filename}: {e}")
+    print("Cleanup complete.")
+
 if __name__ == '__main__':
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
@@ -432,4 +457,7 @@ if __name__ == '__main__':
         # Keep process alive so they can still use the browser
         while True:
             time.sleep(1)
+            
+    # Cleanup on normal exit
+    cleanup_files()
     os._exit(0)
