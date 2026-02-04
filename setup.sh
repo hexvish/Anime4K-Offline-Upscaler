@@ -13,11 +13,11 @@ fi
 echo "✅ Python 3 found"
 
 # Check FFmpeg
+# Check FFmpeg
 if ! command -v ffmpeg &> /dev/null; then
-    echo "❌ FFmpeg is not installed"
-    echo "Please install FFmpeg with libplacebo support:"
-    echo "  sudo apt install ffmpeg"
-    exit 1
+    echo "⚠️  System FFmpeg not found."
+    echo "   The application will download a local copy of FFmpeg on first run."
+    echo "   (This is normal for the standalone version)"
 fi
 
 echo "✅ FFmpeg found"

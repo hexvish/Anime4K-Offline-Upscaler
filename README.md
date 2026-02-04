@@ -44,13 +44,8 @@ chmod +x setup.sh launch_desktop.sh
 #### 1. Setup
 - **Python**: Install [Python 3.11+](https://www.python.org/downloads/windows/) (ensure "Add Python to PATH" is checked).
 - **FFmpeg**: 
-  1. Download the "essentials" build from [Gyan.dev](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials-7z.exe) or [Brosser](https://github.com/Brosser/ffmpeg-builds/releases).
-  2. Extract the folder (e.g., to `C:\ffmpeg`).
-  3. Add the `bin` folder (e.g., `C:\ffmpeg\bin`) to your **System Environment Variables**:
-     - Search for "Edit the system environment variables" in Windows Search.
-     - Click **Environment Variables** > Select **Path** in 'System variables' > **Edit** > **New**.
-     - Paste the path to the `bin` folder and click OK.
-  4. Verify by opening a new Command Prompt and typing `ffmpeg -version`.
+  > [!NOTE]
+  > The application will **automatically download** a working version of FFmpeg with Anime4K support into the project's `bin/windows` folder on the first launch. You do not need to install it manually.
 - Double-click **`setup.bat`**.
 
 #### 2. Launch
