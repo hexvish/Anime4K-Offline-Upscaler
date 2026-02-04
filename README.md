@@ -23,54 +23,26 @@ A standalone premium offline application for GPU-accelerated video upscaling usi
 
 ## Installation & Launch
 
-### 🐧 Linux
-
-#### 1. Setup
-```bash
-git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
-cd Anime4K-Offline-Upscaler
-chmod +x setup.sh launch_desktop.sh
-./setup.sh
-```
-
-#### 2. Launch
-- **Desktop Mode**: `./launch_desktop.sh`
-- **Server Mode**: `source venv/bin/activate && python app.py`
+### 🐧 Linux / 🍎 macOS
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
+    cd Anime4K-Offline-Upscaler
+    ```
+2.  **Launch**:
+    ```bash
+    chmod +x launch_desktop.sh
+    ./launch_desktop.sh
+    ```
+    *The script will automatically handle first-time setup (creating virtual environment, installing Python/FFmpeg dependencies) and then launch the application.*
 
 ---
 
 ### 🪟 Windows
-
-#### 1. Setup
-- **Python**: Install [Python 3.11+](https://www.python.org/downloads/windows/) (ensure "Add Python to PATH" is checked).
-- **FFmpeg**: 
-  > [!NOTE]
-  > The application will **automatically download** a working version of FFmpeg with Anime4K support into the project's `bin/windows` folder on the first launch. You do not need to install it manually.
-- Double-click **`setup.bat`**.
-
-#### 2. Launch
-- Double-click **`launch_desktop.bat`**.
-
----
-
-### 🍎 macOS
-
-#### 1. One-Time Setup
-Ensure [Homebrew](https://brew.sh) is installed, then run:
-```bash
-git clone https://github.com/hexvish/Anime4K-Offline-Upscaler.git
-cd Anime4K-Offline-Upscaler
-chmod +x *.sh
-./setup_mac.sh
-```
-
-#### 2. Launch (Run every time)
-To open the application:
-```bash
-./launch_desktop.sh
-```
-
----
+1.  **Clone or Download** the repository.
+2.  **Launch**:
+    - Double-click **`launch_desktop.bat`**.
+    *The script will automatically set up the environment and download necessary tools (FFmpeg) on the first run.*
 
 ## Usage
 
@@ -211,7 +183,7 @@ Edit `.env` file:
 UPLOAD_FOLDER=uploads
 OUTPUT_FOLDER=outputs
 MAX_FILE_SIZE=2147483648  # 2GB
-ALLOWED_EXTENSIONS=mp4,mkv,avi,mov,webm
+ALLOWED_EXTENSIONS=mp4,mkv,avi,mov,webm,flv,wmv,m4v
 DEFAULT_SHADER=Anime4K_Upscale_Denoise_CNN_x2_M.glsl
 FFMPEG_THREADS=4
 GPU_DEVICE=0
