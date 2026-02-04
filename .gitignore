@@ -24,3 +24,11 @@ outputs/*
 *.avi
 *.mov
 *.webm
+
+# FFmpeg binaries (downloaded on first run)
+bin/windows/*
+bin/linux/*
+bin/darwin/*
+!bin/windows/.gitkeep
+!bin/linux/.gitkeep
+!bin/darwin/.gitkeep
