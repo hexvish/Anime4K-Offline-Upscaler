@@ -54,6 +54,15 @@ function setupEventListeners() {
         });
     });
 
+    // Swap Width and Height
+    const swapBtn = document.getElementById('swap-btn');
+    swapBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tempWidth = widthInput.value;
+        widthInput.value = heightInput.value;
+        heightInput.value = tempWidth;
+    });
+
     // Tabs
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
