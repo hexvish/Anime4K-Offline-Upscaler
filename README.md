@@ -39,8 +39,11 @@ A standalone premium offline application for GPU-accelerated video upscaling usi
 ---
 
 ### 🪟 Windows
-1.  **Clone or Download** the repository.
-2.  **Launch**:
+1.  **Install Python** (if not already installed):
+    - Download Python 3.11+ from [python.org](https://www.python.org/downloads/windows/).
+    - **Important**: During installation, check the box **"Add Python to PATH"**.
+2.  **Clone or Download** the repository.
+3.  **Launch**:
     - Double-click **`launch_desktop.bat`**.
     *The script will automatically set up the environment and download necessary tools (FFmpeg) on the first run.*
 
