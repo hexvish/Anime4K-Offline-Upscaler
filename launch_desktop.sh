@@ -17,7 +17,7 @@ check_python() {
             if command -v brew &> /dev/null; then
                 brew install python
             else
-                echo "❌ Homebrew not found. Please install Python 3 manually or install Homebrew."
+                echo "❌ Homebrew not found. Install it from https://brew.sh/ or install Python manually from python.org."
                 exit 1
             fi
         else
