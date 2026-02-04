@@ -6,10 +6,9 @@ __pycache__/
 .env
 
 # Project specific
-uploads/*
-!uploads/.gitkeep
-outputs/*
-!outputs/.gitkeep
+uploads/
+outputs/
+bin/
 
 # IDE and System
 .vscode/
@@ -25,10 +24,3 @@ outputs/*
 *.mov
 *.webm
 
-# FFmpeg binaries (downloaded on first run)
-bin/windows/*
-bin/linux/*
-bin/darwin/*
-!bin/windows/.gitkeep
-!bin/linux/.gitkeep
-!bin/darwin/.gitkeep

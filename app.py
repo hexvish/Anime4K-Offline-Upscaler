@@ -28,7 +28,7 @@ load_dotenv()
 # Initialize FFmpeg manager
 ffmpeg_mgr = get_ffmpeg_manager()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='web/static', template_folder='web/templates')
 app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
 app.config['OUTPUT_FOLDER'] = os.getenv('OUTPUT_FOLDER', 'outputs')
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_FILE_SIZE', 2147483648))

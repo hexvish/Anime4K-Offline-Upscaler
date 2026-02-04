@@ -55,7 +55,7 @@ if [ ! -d "venv" ]; then
     
     # 4. Create Directories
     echo "📁 Creating application directories..."
-    mkdir -p uploads outputs shaders
+    mkdir -p uploads outputs bin
 
     echo "✅ Setup complete!"
     echo "-----------------------------"

@@ -38,7 +38,7 @@ if not exist venv (
     echo 📁 Creating application directories...
     if not exist uploads mkdir uploads
     if not exist outputs mkdir outputs
-    if not exist shaders mkdir shaders
+    if not exist bin mkdir bin
     
     echo ✅ Setup complete!
     echo ---------------------------
