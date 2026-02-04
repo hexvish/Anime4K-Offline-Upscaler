@@ -24,7 +24,7 @@ A standalone premium offline application for GPU-accelerated video upscaling usi
 ## Installation & Launch
 
 ### 🐧 Linux / 🍎 macOS
-1.  **Install Python** (if not already installed):
+1.  **Install Python 3.11+** (if not already installed):
     - **macOS**: Download from [python.org](https://www.python.org/downloads/mac-osx/) or use [Homebrew](https://brew.sh/) (`brew install python`).
       *(Note: Homebrew is not pre-installed on macOS. Visit brew.sh to install it first if you prefer this method.)*
     - **Linux**: Usually pre-installed. If not: `sudo apt install python3 python3-venv python3-pip`.
